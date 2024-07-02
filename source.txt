@@ -1,0 +1,14 @@
+npm install sequelize mysql2
+npm install -g sequelize-auto
+
+
+npx sequelize-cli db:migrate:undo
+npx sequelize-cli db:migrate:status
+npx sequelize-cli model:generate --name users --attributes nome:String,sobrenome:String,email:String,senha:String,tipo_usuario:String
+npx sequelize-cli migration:generate --name remove-column-from-artigos
+npx sequelize-cli db:migrate
+
+
+npx sequelize-cli db:seed --seed 20210702000000-demo-user.js
+npx sequelize-cli db:seed:all
+npx sequelize-cli db:seed:undo:all
