@@ -1,8 +1,14 @@
-const express = require('express');
-const route = express.Router();
-const homeController = require('../Controllers/home');
+const adminRoute = require('./adminRoutes');
+const cadastroRoute = require('./cadastroRoutes');
+const loginRoute = require('./loginRoutes');
+const homeRoute = require('./homeRoutes');
 
-route.get('/', homeController);
 
 
-module.exports = route;
+
+module.exports = {
+    homeRoute,
+    adminRoute,
+    cadastroRoute,
+    loginRoute
+};

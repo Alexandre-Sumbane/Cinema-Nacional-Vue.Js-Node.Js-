@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <h1>Tio Ride</h1>
+    <header>
+        <div class="logo">
+            <a href="">Logo</a>
+        </div>
+        <nav>
+            <a href="#">Contact</a>
+            <a href="#">About</a>
+            <a href="#">Biograph</a>
+            <a href="#">Home</a>
+            <% if (User) { %>
+                <%if(User.tipo_usuario == "Admin") {%>
+                    <a href="">Dashboard</a>
+                <%}%> 
+                    
+                <a href="">Sair</a>
+            <% } else { %>
+                <a href="/login">Entrar</a>
+            <% } %>
+
+        </nav>
+    </header>
+    <section class="container">
+        <div class="arrows">
+            <button class="arrow-left control" aria-label="previous"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                    height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+                </svg></button>
+            <button class="arrow-right control" aria-label="next"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                    height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                </svg></button>
+        </div>
+
+        <div class="gallery-main">
+            <img src="./img/1.jpg" alt="Slide1" class="item current-item">
+            <img src="./img/2.jpg" alt="Slide2" class="item">
+            <img src="./img/3.jpg" alt="Slide3" class="item">
+            <img src="./img/4.jpg" alt="Slide4" class="item">
+            <img src="./img/5.jpg" alt="Slide5" class="item">
+            <img src="./img/6.jpg" alt="Slide6" class="item">
+            <img src="./img/7.jpg" alt="Slide7" class="item">
+            <img src="./img/8.jpg" alt="Slide8" class="item">
+        </div>
+    </section>
+    <script src="../../js/script.js"></script>
 </body>
+
 </html>

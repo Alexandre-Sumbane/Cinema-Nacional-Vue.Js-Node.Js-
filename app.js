@@ -1,17 +1,37 @@
 const express = require("express");
 const app = express();
-const routes = require('./src/Routes/Routes');
-const bodyParser = require("body-parser");
+const routes = require('./src/Routes/Routes'); 
 const path = require('path');
-const db = require('./models/index');
+const session = require('express-session');
 
-app.use(express.urlencoded({extended: true}));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 app.use(express.static(path.resolve(__dirname, 'public')));
+
+
 app.set('views', path.resolve(__dirname, 'src', 'Views'));
 app.set('view engine', 'ejs');
-app.use(bodyParser.json());
-app.use(routes);
 
-app.listen(3000, (req, res)=>{
-    console.log(`Servidor rodando na porta: http://localhost:3000`);
-});
+app.use(session({
+    secret: "12345",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7, 
+        httpOnly: true
+    }
+}));
+
+
+app.use('/', routes.homeRoute);
+app.use('/admin', routes.adminRoute);
+app.use('/cadastro', routes.cadastroRoute);
+app.use('/login', routes.loginRoute);
+
+
+module.exports = {
+    app
+};

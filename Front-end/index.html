@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./public/assets/css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header-home></header-home>
+    <body-home></body-home>
+    <biograph></biograph>
+    <about-us></about-us>
+    <contact></contact>
+  </div>
+    <template id="headHome">
+      <header>
+        <div class="logo">
+          <a href="">Logo</a>
+        </div>
+        <nav>
+          <a href="#">Contact</a>
+          <a href="#">About</a>
+          <a href="#">Biograph</a>
+          <a href="#">Home</a>
+        </nav>
+      </header>
+    </template>
+    <template id="bodyHome">
+      <section class="container-slider">
+        <div class="arrows">
+          <button class="arrow-left control" aria-label="previous" @click="previous"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+              height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+            </svg></button>
+          <button class="arrow-right control" aria-label="next" @click="next"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+            </svg></button>
+        </div>
+        <div class="gallery-main">
+          <img src="./public/assets/img/1.jpg" alt="Slide1" class="item current-item">
+          <img src="./public/assets/img/2.jpg" alt="Slide2" class="item">
+          <img src="./public/assets/img/3.jpg" alt="Slide3" class="item">
+          <img src="./public/assets/img/4.jpg" alt="Slide4" class="item">
+          <img src="./public/assets/img/5.jpg" alt="Slide5" class="item">
+          <img src="./public/assets/img/6.jpg" alt="Slide6" class="item">
+          <img src="./public/assets/img/7.jpg" alt="Slide7" class="item">
+          <img src="./public/assets/img/8.jpg" alt="Slide8" class="item">
+        </div>
+      </section>
+    </template>
+    <template id="biograph">
+      <section class="container-biograph container-section"> 
+            <div class="text">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta sequi nobis pariatur eum, velit alias! Placeat commodi, a sed esse ex odit natus soluta dicta cumque voluptatum ullam ipsum omnis?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus in perferendis consequatur quis ipsam voluptate, veniam aspernatur dolorem quidem distinctio nostrum nesciunt veritatis exercitationem quos iste officia labore eos culpa.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam corrupti necessitatibus enim quos sed iure at esse dignissimos assumenda autem cumque, iusto recusandae minima doloremque nostrum expedita non perspiciatis quis.
+              </p>
+            </div>
+            <div class="photo">
+              <img src="./public/assets/img/photoBio.jpg" alt="Foto de biografia">
+            </div>
+      </section>
+    </template>
+    <template id="aboutUs">
+      <div class="container-section">
+          <div class="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque iste in provident magni quaerat suscipit nulla beatae vitae ducimus placeat et facilis odit a ex, necessitatibus quisquam cumque itaque quam?</p>
+          </div>
+          <div class="photo">
+            <img src="./public/assets/img/pexels-charles-parker-5847763.jpg" alt="About Photo">
+          </div>  
+      </div>
+    </template>
+    <template id="contact">
+      <div class="container-section">
+        <div class="text">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia fugiat itaque id soluta sequi est unde iure recusandae eveniet accusantium laboriosam, animi quasi, quidem, doloribus consectetur voluptate cum sed. Dolore?
+          </p>
+        </div>
+        <div class="photo">
+          <img src="./public/assets/img/pexels-laura-tancredi-7078911.jpg" alt="Contact Photo">
+        </div>
+      </div>
+    </template>
+    <script src="./public/assets/js/homepage.js"></script>
+    <script src="https://unpkg.com/vue@3.2.47"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+          };
+        },
+      });
+      app.component('header-home', {
+        template: '#headHome',
+      });
+      app.component('body-home', {
+          data() {
+            return {
+
+            }
+          },
+          methods: {
+            previous() {
+              console.log('Previous');
+            },  
+            next() {
+              console.log('Next');
+            }
+          },
+        template: '#bodyHome',
+      });
+      app.component('biograph', {
+        template: '#biograph',  
+      });
+      app.component('about-us', {
+          template: '#aboutUs',
+      });
+      app.component('contact', {
+        template: '#contact',
+      });
+
+      app.mount('#app');
+    </script>
+
+    </script>
+</body>
+</html>
